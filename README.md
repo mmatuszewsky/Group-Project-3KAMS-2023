@@ -1,4 +1,4 @@
-# Group-Project---3-KAMS-2023
+# Group Project 3KAMS-2023
 
 Celem projektu jest opracowanie narzędzia do tworzenia map przedstawiających scenerie w rzucie izometrycznym (tzn. od góry pod lekkim ukosem). 
 Mapy takie stanowią istotny element zawartości wielu gier, w szczególności z gatunku RPG.
