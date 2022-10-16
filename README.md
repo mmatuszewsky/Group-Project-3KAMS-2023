@@ -7,7 +7,8 @@ Pożądanym rezultatem jest możliwość konwersji danych wejściowych w ustalon
 Narzędzie powinno zostać przygotowane w formie wygodnej do korzystania przez użytkowników nie będących programistami oraz udostępnione wraz z kodem na publicznym repozytorium, np. GitHub.
 
 ## Przydatne linki:
- - https://affinelayer.com/pixsrv/
- - https://machinelearningmastery.com/how-to-develop-a-pix2pix-gan-for-image-to-image-translation/
- - https://arxiv.org/abs/1611.07004
  - https://www.tensorflow.org/tutorials/generative/pix2pix
+ - https://pyimagesearch.com/2022/07/27/image-translation-with-pix2pix/
+ - https://machinelearningmastery.com/how-to-develop-a-pix2pix-gan-for-image-to-image-translation/
+ - https://affinelayer.com/pixsrv/
+ - https://arxiv.org/abs/1611.07004
