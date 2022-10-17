@@ -7,10 +7,11 @@ import glob
 from time import sleep
 
 # directory with maps (.h3m)
-MAP_DIR = "H:\Heroes of Might and Magic III Complete\Maps"
+EDITOR_EXE_DIR = r"C:\\Users\macia\Desktop\homm\H3Unleashed.exe"
+MAPS_DIR = "H:\Heroes of Might and Magic III Complete\Maps"
 
 # list of paths to all maps
-files = glob.glob(f"{MAP_DIR}\*.h3m")
+files = glob.glob(f"{MAPS_DIR}\*.h3m")
 
 
 def is_admin():
@@ -23,7 +24,7 @@ def is_admin():
 if not is_admin():
     ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
 else:     
-    app = pywinauto.Application(backend="uia").start(r"C:\\Users\macia\Desktop\homm\H3Unleashed.exe")
+    app = pywinauto.Application(backend="uia").start(EDITOR_EXE_DIR)
     main_window = app.window(best_match="Heroes of Might and Magic® III Map Editor", control_type="Window", found_index=0)
     
     for file in files:
