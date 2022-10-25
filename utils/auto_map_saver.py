@@ -40,6 +40,11 @@ else:
         file_dlg.child_window(auto_id="1152", control_type="Edit").set_edit_text(file)
         file_dlg.child_window(auto_id="1", control_type="Button").click()
         
+        try:
+            main_window.child_window(found_index=0).OK.click()
+        except:
+            print("Error")
+        
         menu_bar = main_window.child_window(best_match="Aplikacja", auto_id="MenuBar", control_type="MenuBar", found_index=0)
         unleashed_dlg = menu_bar.child_window(best_match="Unleashed", control_type="MenuItem")
         unleashed_dlg.click_input()
