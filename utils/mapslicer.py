@@ -21,9 +21,11 @@ def crop(dir_in, dir_out, filename, d):
     w, h = img.size
     d = round(w/d)
     grid = product(range(0, h-h%d, d), range(0, w-w%d, d))
+    counter = 0
     for i, j in grid:
+        counter = counter + 1
         box = (j, i, j+d, i+d)
-        out = os.path.join(dir_out, f'{name}_{i}_{j}_{ext}')
+        out = os.path.join(dir_out, f'{name}_{counter}_{ext}')
         img.crop(box).save(out)
 
 
