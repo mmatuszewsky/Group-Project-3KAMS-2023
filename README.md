@@ -14,3 +14,4 @@ Narzędzie powinno zostać przygotowane w formie wygodnej do korzystania przez u
  - https://affinelayer.com/pixsrv/
  - https://arxiv.org/abs/1611.07004
  - https://github.com/genekogan/InvisibleCities
+ - https://blog.paperspace.com/generating-interactive-pix2pix-models/
