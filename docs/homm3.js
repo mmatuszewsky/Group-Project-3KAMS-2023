@@ -4,7 +4,7 @@ variables
 var model;
 var canvas;
 var currColor = '#002FFF'
-var backColor = '#0000DE'
+var backColor = '#085193'
 /*
 color pallette click events
 */
@@ -162,11 +162,11 @@ function postprocess(tensor){
 function populateInitImage()
 {
     var imgData = new Image;
-    imgData.src = "minimap.png"
+    imgData.src = "minimap.jpg"
     imgData.onload = function () {
         var img = new fabric.Image(imgData, {
-            width: 256,
-            height: 256,
+            width: 512,
+            height: 512,
         });
         canvas.add(img)
         img.evented = false
