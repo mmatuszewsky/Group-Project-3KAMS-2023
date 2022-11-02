@@ -22,3 +22,8 @@ Narzędzie powinno zostać przygotowane w formie wygodnej do korzystania przez u
  
  `teoria`
  - https://arxiv.org/abs/1611.07004
+
+
+## Stronka
+https://mmatuszewsky.github.io/Group-Project-3KAMS-2023/
+ 
