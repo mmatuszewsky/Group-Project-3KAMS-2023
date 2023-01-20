@@ -1,0 +1,131 @@
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-image: url("img/background.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    text-align: center;
+}
+
+canvas {
+    border: 1px solid black;
+    margin-right: 20px;
+}
+
+.container {
+    display: flex;
+    width: 1200px;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.selected {
+    -webkit-box-shadow: 0px 0px 20px 1px rgba(79, 150, 193, 1);
+    -moz-box-shadow: 0px 0px 20px 1px rgba(79, 150, 193, 1);
+    box-shadow: 0px 0px 20px 1px rgba(79, 150, 193, 1);
+}
+
+.pick-color-container {
+    display:flex;
+    flex-direction: column;
+    margin-top: 115px;
+    margin-right: 20px;
+}
+
+.pick-color-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 150px;
+}
+
+.pick-color {
+    width: 50px;
+    height: 50px;
+    border-radius:5px;
+    background-color: aqua;
+    margin:5px 0px;
+    transition: ease-in .1s all;
+    cursor: pointer;
+}
+
+.pick-color:hover {
+    -webkit-box-shadow: 0px 0px 20px 1px rgba(79, 150, 193, 1);
+    -moz-box-shadow: 0px 0px 20px 1px rgba(79, 150, 193, 1);
+    box-shadow: 0px 0px 20px 1px rgba(79, 150, 193, 1);
+}
+
+.sea {
+    background-color:#085193;
+}
+
+.grass {
+    background-color:#004300;
+}
+
+.forest {
+    background-color: #003101;
+}
+
+.dirt {
+    background-color: #513a08;
+}
+
+.mountain {
+    background-color: #392908;
+}
+
+.sand {
+    background-color:#dfcd8b;
+}
+
+.swamp {
+    background-color:#205a42;
+}
+
+.snow {
+    background-color:#b4c6c6;
+}
+
+.tool-container {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    user-select: none;
+}
+
+.tool {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tool-img {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.tool-img img{
+    width: 100%;
+    height: 100%;
+}
+
+.tool-img:hover {
+    -webkit-box-shadow: 0px 0px 20px 1px rgba(79, 150, 193, 1);
+    -moz-box-shadow: 0px 0px 20px 1px rgba(79, 150, 193, 1);
+    box-shadow: 0px 0px 20px 1px rgba(79, 150, 193, 1);
+    cursor: pointer;
+}
+
