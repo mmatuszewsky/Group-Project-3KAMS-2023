@@ -17,6 +17,12 @@ let lastMousePos = null;
 let currentColor = colors.grass;
 let brushSize = 4;
 
+const minmax = value => {
+    value = (value < 0) ? 0 : value;
+    value = (value > 127) ? 127 : value;
+    return value;
+}
+
 const createGrid = () => {
     for(let y = 0; y < 128; y++) {
         for(let x = 0; x < 128; x++) {
@@ -49,8 +55,8 @@ const getMousePos = e => {
 }
 
 const getTileBasedOnMousePos = pos => {
-    const x = Math.abs(Math.floor(pos.x / TILE_SIZE));
-    const y = Math.abs(Math.floor(pos.y / TILE_SIZE));
+    const x = minmax(Math.floor(pos.x / TILE_SIZE));
+    const y = minmax(Math.floor(pos.y / TILE_SIZE));
     const tilePosInArray = y * 128 + x;
     return GRID[tilePosInArray];
 }
@@ -82,6 +88,10 @@ const drawLine = (x0, y0, x1, y1) => {
 }
 
 const draw = e => {
+    if (!lastMousePos) {
+        lastMousePos = getMousePos(e);
+        return;
+    }
     const pos = getMousePos(e);
     const startTile = getTileBasedOnMousePos(lastMousePos);
     const endTile = getTileBasedOnMousePos(pos);
@@ -103,13 +113,18 @@ canvas.addEventListener('mousemove', e => {
     }
 })
 
-canvas.addEventListener('mouseup', e => {
+// canvas.addEventListener('mouseup', e => {
+//     isHeld = false;
+//     lastMousePos = null;
+// });
+
+window.addEventListener('mouseup', e => {
     isHeld = false;
     lastMousePos = null;
 });
 
 canvas.addEventListener('mouseout', e => {
-    isHeld = false;
+    // isHeld = false;
     lastMousePos = null;
 });
 
