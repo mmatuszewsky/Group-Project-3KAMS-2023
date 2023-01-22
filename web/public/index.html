@@ -58,32 +58,31 @@
                         </div>
                     </div>
                     <div class="tool">
-                        <span>BRUSH (4px)</span>
-                        <div id="brush4" class="tool-img">
+                        <span>BRUSH (2px)</span>
+                        <div id="brushSmall" class="tool-img brush">
                             <img src="img/icons/small.webp" alt="bucket" width="50" height="50">
                         </div>
                     </div>
                     <div class="tool">
                         <span>BRUSH (8px)</span>
-                        <div id="brush8" class="tool-img">
+                        <div id="brushMedium" class="tool-img brush">
                             <img src="img/icons/medium.webp" alt="bucket" width="50" height="50">
                         </div>
                     </div>
                     <div class="tool">
-                        <span>BRUSH (16px)</span>
-                        <div id="brush16" class="tool-img">
+                        <span>BRUSH (32px)</span>
+                        <div id="brushLarge" class="tool-img brush">
                             <img src="img/icons/big.webp" alt="bucket" width="50" height="50">
                         </div>
                     </div>
                 </div>
                 <canvas id="map" width="512" height="512">
             </div>
-            <div>
-                <canvas id="generated-map" width="512" height="512">
+            <div class="generated-map">
+                <img id="generated-map" src="" alt="" class="d-none">
             </div>
         </div>
     </main>
     <script type="module" src="js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/4.2.0/tf.min.js" integrity="sha512-luqeEXU5+ipFs8VSUJZTbt6Iil1m7OT0bODSccqew2CN85iad5Mn//M9+CPVI4UGlo8kN51OWFSox+fYe4qgYQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
