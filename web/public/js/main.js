@@ -11,6 +11,11 @@ const selectColor = colorPicker => {
     colorPicker.classList.add(selected);
 }
 
+const selectBrush = selectedBrush => {
+    document.querySelectorAll('.brush').forEach(brush => brush.classList.remove(selected));
+    selectedBrush.classList.add(selected);
+}
+
 const colorPickers = document.querySelectorAll(".pick-color");
 colorPickers.forEach(picker => {
     picker.addEventListener('click', () => {
@@ -24,17 +29,20 @@ clear.addEventListener('click', () => {
     drawGrid(colors.sea);
 })
 
-const brush4 = document.querySelector('#brush4');
-brush4.addEventListener('click', () => {
-    updateBrushSize(4);
+const brushSmall = document.querySelector('#brushSmall');
+brushSmall.addEventListener('click', () => {
+    updateBrushSize(2);
+    selectBrush(brushSmall);
 })
 
-const brush8 = document.querySelector('#brush8');
-brush8.addEventListener('click', () => {
+const brushMedium = document.querySelector('#brushMedium');
+brushMedium.addEventListener('click', () => {
     updateBrushSize(8);
+    selectBrush(brushMedium);
 })
 
-const brush16 = document.querySelector('#brush16');
-brush16.addEventListener('click', () => {
-    updateBrushSize(16);
+const brushLarge = document.querySelector('#brushLarge');
+brushLarge.addEventListener('click', () => {
+    updateBrushSize(32);
+    selectBrush(brushLarge);
 })
