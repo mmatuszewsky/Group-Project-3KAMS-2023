@@ -1,7 +1,7 @@
 import { initDrawing, updateColor, drawGrid, updateBrushSize, colors } from './drawing.js';
 
 window.onload = () => {
-    initDrawing(colors.grass);
+    initDrawing("grass");
 }
 
 const selected = 'selected';
@@ -19,7 +19,8 @@ const selectBrush = selectedBrush => {
 const colorPickers = document.querySelectorAll(".pick-color");
 colorPickers.forEach(picker => {
     picker.addEventListener('click', () => {
-        updateColor(getComputedStyle(picker).backgroundColor);
+        const color = Array.from(picker.classList).filter(className => className !== 'pick-color')[0];
+        updateColor(color);
         selectColor(picker);
     })
 })

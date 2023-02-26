@@ -1,0 +1,71 @@
+.water {
+    background-color:#085294;
+}
+
+.dirt {
+    background-color: #523908;
+}
+
+.sand {
+    background-color:#dece8c;
+}
+
+.grass {
+    background-color:#004200;
+}
+
+.snow {
+    background-color: #b5c6c6;
+}
+
+.swamp {
+    background-color:#4a846b;
+}
+
+.rough {
+    background-color: #847331;
+}
+
+.lava {
+    background-color: #4a4a4a;
+}
+
+.rock {
+    background-color: #000000;
+}
+
+.neutral {
+    background-color: #848484;
+}
+
+.red {
+    background-color: #ff0000;
+}
+
+.blue {
+    background-color: #3152ff;
+}
+
+.tan {
+    background-color: #9c7352;
+}
+
+.green {
+    background-color: #429429;
+}
+
+.orange {
+    background-color: #ff8400;
+}
+
+.purple {
+    background-color: #8c29a5;
+}
+
+.teal {
+    background-color: #089ca5;
+}
+
+.pink {
+    background-color: #c67b8c;
+}

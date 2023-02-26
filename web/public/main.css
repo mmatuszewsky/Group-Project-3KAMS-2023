@@ -14,7 +14,7 @@ main {
     background-repeat: no-repeat;
 }
 
-h1 {
+h1, h5 {
     text-align: center;
 }
 
@@ -38,8 +38,6 @@ canvas {
 
 .pick-color-container {
     display:flex;
-    flex-direction: column;
-    margin-top: 115px;
     margin-right: 20px;
 }
 
@@ -64,38 +62,6 @@ canvas {
     -webkit-box-shadow: 0px 0px 20px 1px rgba(79, 150, 193, 1);
     -moz-box-shadow: 0px 0px 20px 1px rgba(79, 150, 193, 1);
     box-shadow: 0px 0px 20px 1px rgba(79, 150, 193, 1);
-}
-
-.sea {
-    background-color:#085193;
-}
-
-.grass {
-    background-color:#004300;
-}
-
-.forest {
-    background-color: #003101;
-}
-
-.dirt {
-    background-color: #513a08;
-}
-
-.mountain {
-    background-color: #392908;
-}
-
-.sand {
-    background-color:#dfcd8b;
-}
-
-.swamp {
-    background-color:#205a42;
-}
-
-.snow {
-    background-color:#b4c6c6;
 }
 
 .tool-container {
@@ -142,4 +108,8 @@ canvas {
 
 .d-none {
     display: none;
+}
+
+.margin-right {
+    margin-right: 2rem;
 }

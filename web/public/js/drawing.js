@@ -6,10 +6,36 @@ const TILE_SIZE = 2;
 const MAP_SIZE = 256;
 
 const colors = {
-    sea: '#085193',
-    grass: '#004300',
-    forest: '#003101',
-    dirt: '#513a08'
+    water: '#085294',
+    dirt: '#523908',
+    sand: '#dece8c',
+    grass: '#004200',
+    snow: '#b5c6c6',
+    swamp: '#4a846b',
+    rough: '#847331',
+    lava: '#4a4a4a',
+    rock: '#000000',
+    neutral: '#848484',
+    red: '#ff0000',
+    blue: '#3152ff',
+    tan: '#9c7352',
+    green: '#429429',
+    orange: '#ff8400',
+    purple: '#8c29a5',
+    teal: '#089ca5',
+    pink: '#c67b8c'
+}
+
+const obstacleColors = {
+    water: '#00296b',
+    dirt: '#392908',
+    sand: '#a59c6b',
+    grass: '#003100',
+    snow: '#8c9c9c',
+    swamp: '#215a42',
+    rough: '#635221',
+    lava: '#292929',
+    rock: '#000000'
 }
 
 // global state
@@ -17,6 +43,8 @@ const GRID = [];
 let isHeld = false;
 let lastMousePos = null;
 let currentColor = colors.grass;
+let obstacleColor = obstacleColors.grass;
+let isDrawingObstacle = false;
 let brushSize = 2;
 
 const minmax = value => {
@@ -39,7 +67,7 @@ const createGrid = () => {
 
 const drawGrid = color => {
     if (!color) {
-        color = colors.sea;
+        color = colors.water;
     }
 
     GRID.forEach(tile => {
@@ -63,11 +91,15 @@ const getTileBasedOnMousePos = pos => {
     return GRID[tilePosInArray];
 }
 
+const drawRect = tile => {
+    ctx.fillStyle = (isDrawingObstacle) ? obstacleColor : currentColor;
+    ctx.fillRect(tile.x - brushSize / 2, tile.y - brushSize / 2, brushSize, brushSize);
+}
+
 const drawOnClick = e => {
     const pos = getMousePos(e);
     const tile = getTileBasedOnMousePos(pos);
-    ctx.fillStyle = currentColor;
-    ctx.fillRect(tile.x, tile.y, TILE_SIZE, TILE_SIZE);
+    drawRect(tile);
 }
 
 const drawLine = (x0, y0, x1, y1) => {
@@ -79,8 +111,7 @@ const drawLine = (x0, y0, x1, y1) => {
 
     while (true) {
         const tile = getTileBasedOnMousePos({ x: x0, y: y0 });
-        ctx.fillStyle = currentColor;
-        ctx.fillRect(tile.x, tile.y, brushSize, brushSize);
+        drawRect(tile);
 
         if ((x0 === x1) && (y0 === y1)) break;
         let e2 = 2 * err;
@@ -102,8 +133,17 @@ const draw = e => {
     }
 }
 
+canvas.addEventListener("contextmenu", e => {
+    e.preventDefault();
+});
+
 canvas.addEventListener('mousedown', e => {
     isHeld = true;
+    if (e.button === 2) {
+        isDrawingObstacle = true;
+    } else {
+        isDrawingObstacle = false;
+    }
     lastMousePos = getMousePos(e);
     drawOnClick(e);
 });
@@ -115,8 +155,16 @@ canvas.addEventListener('mousemove', e => {
     }
 })
 
+let send = true;
 canvas.addEventListener('mouseup', e => {
-    sendImage();
+    if (send) {
+        setTimeout(()=>{
+            sendImage();
+            send = true;
+        }, 1000);
+    }
+
+    send = false;
 });
 
 window.addEventListener('mouseup', e => {
@@ -151,7 +199,8 @@ const renderImage = img => {
 }
 
 const updateColor = color => {
-    currentColor = color;
+    currentColor = colors[color];
+    obstacleColor = (obstacleColors[color] !== null) ? obstacleColors[color] : colors[color];
 }
 
 const updateBrushSize = size => {
@@ -160,7 +209,7 @@ const updateBrushSize = size => {
 
 const initDrawing = color => {
     createGrid();
-    drawGrid(colors.sea);
+    drawGrid(colors.water);
     updateColor(color);
 }
 
