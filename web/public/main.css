@@ -8,7 +8,7 @@ main {
     height: 100vh;
     margin: 0 !important;
     padding: 0 !important;
-    background-image: url("img/background.jpg");
+    background-image: url("img/aboveground.jpg");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -112,4 +112,8 @@ canvas {
 
 .margin-right {
     margin-right: 2rem;
+}
+
+.text-white {
+    color: #fefefe !important;
 }

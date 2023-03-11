@@ -4,6 +4,10 @@ const ctx = canvas.getContext('2d', { willReadFrequently: true });
 const generatedMap = document.querySelector('#generated-map');
 const TILE_SIZE = 2;
 const MAP_SIZE = 256;
+const MODES = {
+    aboveground: 'aboveground',
+    underground: 'underground'
+};
 
 const colors = {
     water: '#085294',
@@ -45,7 +49,8 @@ let lastMousePos = null;
 let currentColor = colors.grass;
 let obstacleColor = obstacleColors.grass;
 let isDrawingObstacle = false;
-let brushSize = 2;
+let brushSize = 32;
+let currentMode = MODES.aboveground;
 
 const minmax = value => {
     value = (value < 0) ? 0 : value;
@@ -178,7 +183,7 @@ canvas.addEventListener('mouseout', e => {
 });
 
 const sendImage = async () => {
-    const response = await fetch('http://localhost:3000/generate', {
+    const response = await fetch(`http://localhost:3000/generate/${currentMode}`, {
         method: 'POST',
         headers: {'content-type': 'application/json'},
         body: JSON.stringify({file: canvas.toDataURL('image/jpeg')})
@@ -213,4 +218,49 @@ const initDrawing = color => {
     updateColor(color);
 }
 
-export { initDrawing, updateColor, drawGrid, updateBrushSize, colors }
+const changeMode = () => {
+    if (currentMode !== MODES.underground) {
+        const headers1 = document.querySelectorAll('h1');
+        const headers5 = document.querySelectorAll('h5');
+        const spans = document.querySelectorAll('span');
+        headers1.forEach(element => {
+            element.classList.add('text-white');
+        });
+        
+        headers5.forEach(element => {
+            element.classList.add('text-white');
+        });
+
+        spans.forEach(element => {
+            element.classList.add('text-white');
+        });
+
+        drawGrid(colors.rock);
+        currentMode = MODES.underground;
+    } else {
+        const headers1 = document.querySelectorAll('h1');
+        const headers5 = document.querySelectorAll('h5');
+        const spans = document.querySelectorAll('span');
+        headers1.forEach(element => {
+            element.classList.remove('text-white');
+        });
+        
+        headers5.forEach(element => {
+            element.classList.remove('text-white');
+        });
+
+        spans.forEach(element => {
+            element.classList.remove('text-white');
+        });
+
+        drawGrid(colors.sea);
+        currentMode = MODES.aboveground;
+    }
+    return currentMode;
+}
+
+const getFillColor = () => {
+    return currentMode === MODES.aboveground ? colors.sea : colors.rock;
+}
+
+export { initDrawing, updateColor, drawGrid, updateBrushSize, colors, changeMode, getFillColor }

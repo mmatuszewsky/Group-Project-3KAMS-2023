@@ -1,8 +1,4 @@
-import { initDrawing, updateColor, drawGrid, updateBrushSize, colors } from './drawing.js';
-
-window.onload = () => {
-    initDrawing("grass");
-}
+import { initDrawing, updateColor, drawGrid, updateBrushSize, colors, changeMode, getFillColor } from './drawing.js';
 
 const selected = 'selected';
 
@@ -27,14 +23,14 @@ colorPickers.forEach(picker => {
 
 const clear = document.querySelector('#clear');
 clear.addEventListener('click', () => {
-    drawGrid(colors.sea);
+    drawGrid(getFillColor());
 })
 
-const brushSmall = document.querySelector('#brushSmall');
-brushSmall.addEventListener('click', () => {
-    updateBrushSize(2);
-    selectBrush(brushSmall);
-})
+const changeModeElement = document.querySelector('#changeMode');
+changeModeElement.addEventListener('click', () => {
+    const mode = changeMode();
+    document.querySelector('main').style.backgroundImage = `url('img/${mode}.jpg')`;
+});
 
 const brushMedium = document.querySelector('#brushMedium');
 brushMedium.addEventListener('click', () => {
@@ -47,3 +43,9 @@ brushLarge.addEventListener('click', () => {
     updateBrushSize(32);
     selectBrush(brushLarge);
 })
+
+window.onload = () => {
+    initDrawing("grass");
+    selectBrush(brushLarge);
+    selectColor(document.querySelector('.grass'));
+}
