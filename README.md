@@ -25,6 +25,6 @@ Narzędzie powinno zostać przygotowane w formie wygodnej do korzystania przez u
 
 
 ## Stronka
-http://heroes-3-adversarial.eu-4.evennode.com/
+http://heroes-3-adversarial.atthost24.pl/
 https://mmatuszewsky.github.io/Group-Project-3KAMS-2023/
  
